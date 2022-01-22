@@ -23,7 +23,9 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 40,
         marginBottom: 10,
-        fontWeight: "bold"
+        fontFamily: theme.fonts.title700,
+        lineHeight: 43,
+        
     },
 
     subTitle: {
@@ -31,6 +33,7 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         textAlign: 'center',
         padding: 20,
-        //marginBottom: 64,
+        fontFamily: theme.fonts.text400,
+        lineHeight: 23,
     }
   });
