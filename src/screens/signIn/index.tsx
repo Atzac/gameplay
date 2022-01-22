@@ -1,24 +1,25 @@
-import React, { useState } from 'react'
-import { Image, View, Text, StatusBar } from 'react-native';
+import React from 'react'
+import { Image, View, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 
 import { styles } from './styles';
 import Illustration from '../../assets/illustration.png'
 import { Button } from '../../components/buttonIcon';
+import { RootStackParamsList } from "../../routes/auth.routes"
+
+type homeScreenProp = NativeStackNavigationProp<RootStackParamsList, "Home">
 
 export function SignIn() {
-    const [texto, setTexto] = useState("")
+    const navigation = useNavigation<homeScreenProp>();
     
-    const handleChange = () => {
-    
+    const handleSignIn = () => {
+      navigation.navigate("Home")
     }
 
     return (
       <View style={styles.container}>
-        <StatusBar 
-          barStyle="light-content"
-          backgroundColor="transparent"
-          translucent
-        />
+        
         <Image 
           source={Illustration}
           style={styles.image}
@@ -38,6 +39,7 @@ export function SignIn() {
 
             <Button
               title={"Entrar com Discord"} 
+              onPress={handleSignIn}
             />
         </View>
       </View>

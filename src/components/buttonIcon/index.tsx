@@ -6,14 +6,16 @@ import Discord from '../../assets/discord.png';
 
 type Props = {
     title: string;
+    onPress: any;
 }
 
-export function Button({ title } : Props) {
+export function Button({ title, onPress } : Props) {
 
     return (
         <TouchableOpacity 
           style={styles.container}
           activeOpacity={0.8}
+          onPress={onPress}
         >
             <View style={styles.iconContainer}>
                 <Image 
