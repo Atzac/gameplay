@@ -10,12 +10,11 @@ type Props = {
 }
 
 export function Button({ title, onPress } : Props) {
-
     return (
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.container}
-          activeOpacity={0.8}
           onPress={onPress}
+          activeOpacity={0.8}
         >
             <View style={styles.iconContainer}>
                 <Image 

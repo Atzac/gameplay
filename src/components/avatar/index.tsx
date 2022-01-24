@@ -16,17 +16,15 @@ export function Avatar({ urlImage } : Props) {
         <TouchableOpacity
           activeOpacity={0.7}
         >
-         
-            <LinearGradient
-              style={styles.container}
-              colors={[secondary70, secondary50]}
-            >
-                <Image 
-                  source={{uri: urlImage}}
-                  style={styles.avatar}
-                />
-            </LinearGradient>
-          
-          </TouchableOpacity>
+          <LinearGradient
+            style={styles.container}
+            colors={[secondary70, secondary50]}
+          >
+            <Image 
+              source={{uri: urlImage}}
+              style={styles.avatar}
+            />
+          </LinearGradient>
+        </TouchableOpacity>
     )
 }
