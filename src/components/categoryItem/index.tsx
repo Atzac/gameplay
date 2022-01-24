@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { SvgProps } from 'react-native-svg';
 import { LinearGradient } from "expo-linear-gradient";
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
@@ -7,10 +7,11 @@ import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
 
-type Props = RectButtonProps & {
+type Props =  {
     title: string;
     icon: React.FC<SvgProps>;
     checked?: boolean;
+    onPress: any
 }
 
 export function CategoryItem({
@@ -23,7 +24,9 @@ export function CategoryItem({
     
 
     return (
-      <RectButton {...rest}>
+      <TouchableOpacity
+        activeOpacity={0.5}
+        {...rest}>
         <LinearGradient
         style={styles.container}
         colors={[secondary50, secondary70]}
@@ -41,6 +44,6 @@ export function CategoryItem({
           </View>
   
         </LinearGradient>
-     </RectButton>
+     </TouchableOpacity>
     )
 }
