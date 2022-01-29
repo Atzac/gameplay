@@ -7,6 +7,7 @@ import { styles } from './styles';
 import Illustration from '../../assets/illustration.png'
 import { Button } from '../../components/buttonIcon';
 import { RootStackParamsList } from "../../routes/auth.routes"
+import { Background } from '../../components/background'
 
 type homeScreenProp = NativeStackNavigationProp<RootStackParamsList, "Home">
 
@@ -18,30 +19,31 @@ export function SignIn() {
     }
 
     return (
-      <View style={styles.container}>
-        
-        <Image 
-          source={Illustration}
-          style={styles.image}
-          resizeMode='stretch'
-        />
+      <Background>
+        <View style={styles.container}>
+          <Image 
+            source={Illustration}
+            style={styles.image}
+            resizeMode='stretch'
+          />
 
-        <View style={styles.content}>
-            <Text style={styles.title}>
-                Conecte-se e {"\n"}
-                organize suas {"\n"}
-                jogatinas     
-            </Text>
-            <Text style={styles.subTitle}>
-              Crie grupos para jogar seus games
-              favoritos com seus amigos
-            </Text>
+          <View style={styles.content}>
+              <Text style={styles.title}>
+                  Conecte-se e {"\n"}
+                  organize suas {"\n"}
+                  jogatinas     
+              </Text>
+              <Text style={styles.subTitle}>
+                Crie grupos para jogar seus games
+                favoritos com seus amigos
+              </Text>
 
-            <Button
-              title={"Entrar com Discord"} 
-              onPress={handleSignIn}
-            />
+              <Button
+                title={"Entrar com Discord"} 
+                onPress={handleSignIn}
+              />
+          </View>
         </View>
-      </View>
+      </Background>
     );
   }
