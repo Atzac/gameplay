@@ -2,11 +2,11 @@ import React from 'react'
 import { Image, View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
+import { RootStackParamsList } from "../../routes/auth.routes"
 
 import { styles } from './styles';
 import Illustration from '../../assets/illustration.png'
 import { Button } from '../../components/buttonIcon';
-import { RootStackParamsList } from "../../routes/auth.routes"
 import { Background } from '../../components/background'
 
 type homeScreenProp = NativeStackNavigationProp<RootStackParamsList, "Home">

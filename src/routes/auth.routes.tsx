@@ -11,8 +11,9 @@ import { AppointmentDetails } from '../screens/AppointmentDetails';
 const { Navigator, Screen } = createNativeStackNavigator();
 
 export type RootStackParamsList = {
-  SignIn: undefined,
-  Home: undefined,
+  SignIn: undefined;
+  Home: undefined;
+  AppointmentDetails: undefined;
 }
 
 export function AuthRoutes() {
