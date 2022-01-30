@@ -1,7 +1,6 @@
 import React from "react";
 import { View, TouchableOpacity, ImageBackground, Text, FlatList } from "react-native";
 
-import { BorderlessButton } from "react-native-gesture-handler";
 import { Fontisto } from "@expo/vector-icons"
 
 import { styles } from "./styles";
@@ -13,7 +12,7 @@ import { Member } from "../../components/member";
 import { ListDivider } from "../../components/listDivider";
 import { Button } from "../../components/buttonIcon";
  
-export function AppointmentDetails() {
+export function AppointmentCreate() {
     const members = [
       {
         id: "1",
@@ -58,7 +57,7 @@ export function AppointmentDetails() {
                     Lendários
                 </Text>
                 <Text style={styles.subTitle}>
-                    É hoje que vamos chegar ao challenger sem perder uma partida md10
+                    Vadia Puta
                   </Text>
               </View>
             </ImageBackground>

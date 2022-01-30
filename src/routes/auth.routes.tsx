@@ -7,6 +7,7 @@ import { Home } from '../screens/home';
 import { SignIn } from '../screens/signIn';
 import { theme } from '../global/styles/theme';
 import { AppointmentDetails } from '../screens/AppointmentDetails';
+import { AppointmentCreate } from '../screens/AppointmentCreate';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ export type RootStackParamsList = {
   SignIn: undefined;
   Home: undefined;
   AppointmentDetails: undefined;
+  AppointmentCreate: undefined;
 }
 
 export function AuthRoutes() {
@@ -37,6 +39,10 @@ export function AuthRoutes() {
           <Screen 
             name="AppointmentDetails"
              component={AppointmentDetails}
+          />
+          <Screen 
+            name="AppointmentCreate"
+             component={AppointmentCreate}
           />
         </Navigator>
     )

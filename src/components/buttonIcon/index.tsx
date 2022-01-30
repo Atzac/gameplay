@@ -6,7 +6,7 @@ import Discord from '../../assets/discord.png';
 
 type Props = {
     title: string;
-    onPress: any;
+    onPress?: any;
 }
 
 export function Button({ title, onPress } : Props) {

@@ -15,10 +15,11 @@ import { Profile } from '../../components/profile';
 import { styles } from './styles';
 
 type AppointmentDetailsScreenProp = NativeStackNavigationProp<RootStackParamsList, "AppointmentDetails">
+type C = NativeStackNavigationProp<RootStackParamsList, "AppointmentCreate"> & AppointmentDetailsScreenProp
 
 export function Home() {
-    const navigation = useNavigation<AppointmentDetailsScreenProp>();
-    const [category, setCategory] = useState('')
+    const navigation = useNavigation<C>();
+    const [category, setCategory] = useState("")
 
     const appointments = [
       {
@@ -75,6 +76,11 @@ export function Home() {
       navigation.navigate("AppointmentDetails")
     }
 
+    function handleAppointmentCreate() {
+      navigation.navigate("AppointmentCreate")
+    }
+
+
     function handleCategorySelect(categoryId: string) {
       categoryId === category ? setCategory('') : setCategory(categoryId);
       console.log(categoryId)
@@ -84,7 +90,9 @@ export function Home() {
         <View >
           <View style={styles.header}>
             <Profile />     
-            <ButtonAdd />
+            <ButtonAdd 
+              onPress={handleAppointmentCreate}
+            />
           </View>
 
           <CategoryCards

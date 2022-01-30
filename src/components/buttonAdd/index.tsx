@@ -1,16 +1,17 @@
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
 
-type Props = RectButtonProps
 
-export function ButtonAdd({...rest} : Props) {
+export function ButtonAdd({ ...rest }) {
     return (
-        <RectButton
+        <TouchableOpacity
           style={styles.container}
+          activeOpacity={0.8}
           {...rest}
         >
             <MaterialCommunityIcons 
@@ -18,6 +19,6 @@ export function ButtonAdd({...rest} : Props) {
               color={theme.colors.heading}
               size={24}
             />
-        </RectButton>
+        </TouchableOpacity>
     )
 }
