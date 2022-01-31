@@ -1,90 +1,50 @@
-import React from "react";
-import { View, TouchableOpacity, ImageBackground, Text, FlatList } from "react-native";
+import React, {useState} from "react";
+import { View, TouchableOpacity, Text } from "react-native";
 
-import { Fontisto } from "@expo/vector-icons"
+import { Feather } from "@expo/vector-icons"
 
 import { styles } from "./styles";
+import { theme } from "../../global/styles/theme";
 import { Background } from "../../components/background";
 import { Header } from "../../components/header";
-import { theme } from "../../global/styles/theme";
-import { ListHeader } from "../../components/listHeader";
-import { Member } from "../../components/member";
-import { ListDivider } from "../../components/listDivider";
-import { Button } from "../../components/buttonIcon";
- 
+import { CategoryCards } from "../../components/categoryCards";
+
 export function AppointmentCreate() {
-    const members = [
-      {
-        id: "1",
-        username: "Isaac",
-        avatar_url: "https://github.com/atzac.png",
-        status: "online"
-      },
-      {
-        id: "2",
-        username: "Isaac",
-        avatar_url: "https://github.com/atzac.png",
-        status: "offline"
-      },
-      {
-        id: "3",
-        username: "Isaac",
-        avatar_url: "https://github.com/atzac.png",
-        status: "offline"
-      },
-    ]
+  const [category, setCategory] = useState("")
+
+    
     return (
         <Background>
             <Header
-              title="Detalhes"
-              action={
-                  <TouchableOpacity>
-                      <Fontisto 
-                        name="share"
-                        size={20}
-                        color={theme.colors.primary}
-                      />
-                  </TouchableOpacity>
-              }
+              title="Agendar partida"
             />
 
-            <ImageBackground
-              source={require("../../assets/banner.png")}
-              style={styles.banner}
-            >
-              <View style={styles.container}>
-                <Text style={styles.title}>
-                    Lendários
-                </Text>
-                <Text style={styles.subTitle}>
-                    Vadia Puta
-                  </Text>
-              </View>
-            </ImageBackground>
+            <Text style={styles.label}>
+              Categoria
+            </Text>       
 
-            <ListHeader 
-              title="Jogadores"
-              subTitle="Total 3"
+            <CategoryCards 
+              hasCheckBox
+              setCategory={setCategory}
+              categorySelected={category}
             />
 
-            <FlatList 
-              data={members}
-              keyExtractor={item => item.id}
-              renderItem={({ item }) => (
-                <Member 
-                  data={item}
-                />
-              )}
-              ItemSeparatorComponent={() =>
-                <ListDivider />
-              }
-              style={styles.members}
-            />
-            
-            <View style={styles.footer}>
-              <Button 
-                title={"Entrar na partida"}
-              />
+            <View style={styles.form}>
+              <TouchableOpacity>
+                <View style={styles.select}>
+                  <View style={styles.image}/>
+                  <View style={styles.selectBody}>
+                    <Text style={styles.label}> Selecione um servidor </Text>
+                  </View>
+
+                  <Feather 
+                    name="chevron-right"
+                    color={theme.colors.heading}
+                    size={18}
+                  />
+                </View>
+              </TouchableOpacity>
+
             </View>
         </Background>
     )

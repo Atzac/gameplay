@@ -9,7 +9,7 @@ import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
 
 export type GuildProps = {
-    id: string;
+    id: number;
     name: string;
     icon: null,
     owner: boolean

@@ -15,10 +15,10 @@ import { Profile } from '../../components/profile';
 import { styles } from './styles';
 
 type AppointmentDetailsScreenProp = NativeStackNavigationProp<RootStackParamsList, "AppointmentDetails">
-type C = NativeStackNavigationProp<RootStackParamsList, "AppointmentCreate"> & AppointmentDetailsScreenProp
+type AllScreens = NativeStackNavigationProp<RootStackParamsList, "AppointmentCreate"> & AppointmentDetailsScreenProp
 
 export function Home() {
-    const navigation = useNavigation<C>();
+    const navigation = useNavigation<AllScreens>();
     const [category, setCategory] = useState("")
 
     const appointments = [
