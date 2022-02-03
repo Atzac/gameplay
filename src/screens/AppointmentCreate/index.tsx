@@ -99,12 +99,13 @@ export function AppointmentCreate() {
                 numberOfLines={5}
                 autoCorrect={false}
               />
-
-              <Button 
-                title="Agendar"
-              />
+              <View style={styles.footer}>
+                <Button 
+                  title="Agendar"
+                />
+              </View>
+  
             </View>
-   
           </ScrollView>
         </Background>
     </KeyboardAvoidingView>

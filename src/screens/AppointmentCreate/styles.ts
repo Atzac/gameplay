@@ -60,6 +60,10 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.text400,
         color: theme.colors.highlight,
         marginBottom: 10,
+    },
+    footer: {
+        marginVertical: 20,
+        marginBottom: 56
     }
     
 })
