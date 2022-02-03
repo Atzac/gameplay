@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
 
 import { Feather } from "@expo/vector-icons"
 
@@ -8,18 +8,27 @@ import { theme } from "../../global/styles/theme";
 import { Background } from "../../components/background";
 import { Header } from "../../components/header";
 import { CategoryCards } from "../../components/categoryCards";
+import { GuildIcon } from "../../components/guildIcon";
+import { SmallInput } from "../../components/smallInput";
+import { DescInput } from "../../components/descInput";
+import { Button } from "../../components/button";
 
 export function AppointmentCreate() {
   const [category, setCategory] = useState("")
 
     
     return (
+      <KeyboardAvoidingView 
+        style={styles.container}
+        behavior={Platform.OS === 'ios' ? "padding" : "height"}
+      >
         <Background>
+          <ScrollView>
             <Header
               title="Agendar partida"
             />
 
-            <Text style={styles.label}>
+            <Text style={ [styles.label, { marginLeft: 24, marginTop: 36, marginBottom: 18 }] }>
               Categoria
             </Text>       
 
@@ -30,9 +39,12 @@ export function AppointmentCreate() {
             />
 
             <View style={styles.form}>
-              <TouchableOpacity>
+              <TouchableOpacity>             
                 <View style={styles.select}>
-                  <View style={styles.image}/>
+                  {
+                    //<View style={styles.image}/>
+                    <GuildIcon />
+                  }
                   <View style={styles.selectBody}>
                     <Text style={styles.label}> Selecione um servidor </Text>
                   </View>
@@ -45,7 +57,56 @@ export function AppointmentCreate() {
                 </View>
               </TouchableOpacity>
 
+              <View style={styles.field}>
+                <View>
+                  <Text style={styles.label}>Dia e mês</Text>
+
+                  <View style={styles.column}>
+                    <SmallInput 
+                      maxLength={2}
+                    />
+                    <Text style={styles.divider}>
+                      /
+                    </Text>
+                    <SmallInput 
+                      maxLength={2}
+                    />
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.label}>Hora e minuto</Text>
+                  <View style={styles.column}>
+                    <SmallInput 
+                      maxLength={2}
+                    />
+                    <Text style={styles.divider}>
+                      :
+                    </Text>
+                    <SmallInput 
+                      maxLength={2}
+                    />
+                  </View>
+                </View>
+              </View>
+
+              <View style={styles.field}>
+                <Text style={styles.label}>Descrição</Text>
+                <Text style={styles.max100caracters}>Max 100 caracteres</Text>
+              </View>
+              <DescInput 
+                multiline
+                maxLength={100}
+                numberOfLines={5}
+                autoCorrect={false}
+              />
+
+              <Button 
+                title="Agendar"
+              />
             </View>
+   
+          </ScrollView>
         </Background>
+    </KeyboardAvoidingView>
     )
 }

@@ -1,10 +1,10 @@
 {
-  "devToolsPort": 19003,
-  "expoServerPort": 19001,
-  "packagerPort": 19001,
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19000,
   "expoServerNgrokUrl": "https://fi-tmk.anonymous.gameplay.exp.direct",
   "packagerNgrokUrl": "https://packager.fi-tmk.anonymous.gameplay.exp.direct",
-  "ngrokPid": 18376,
+  "ngrokPid": 43542,
   "packagerPid": null,
   "webpackServerPort": null
 }
