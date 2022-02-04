@@ -1,5 +1,10 @@
 import React, {useState} from "react";
-import { View, TouchableOpacity, Text, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
+import { View, 
+         TouchableOpacity, 
+         Text, ScrollView, 
+         KeyboardAvoidingView, 
+         Platform
+        } from "react-native";
 
 import { Feather } from "@expo/vector-icons"
 
@@ -12,10 +17,24 @@ import { GuildIcon } from "../../components/guildIcon";
 import { SmallInput } from "../../components/smallInput";
 import { DescInput } from "../../components/descInput";
 import { Button } from "../../components/button";
+import { ModalViews } from "../../components/modalViews";
+import { Guilds } from "../guilds";
+import { GuildProps } from "../../components/appointment";
 
 export function AppointmentCreate() {
   const [category, setCategory] = useState("")
+  const [openGuildsModal, setOpenGuildsModal] = useState(false)
+  const [guild, setGuild] = useState<GuildProps>({} as GuildProps)
 
+  function handleOpenGuilds() {
+    setOpenGuildsModal(true)
+  }
+
+  function handleGuildSelect(guildSelect: GuildProps) {
+    setGuild(guildSelect)
+    setOpenGuildsModal(false)
+  }
+    
     
     return (
       <KeyboardAvoidingView 
@@ -39,7 +58,7 @@ export function AppointmentCreate() {
             />
 
             <View style={styles.form}>
-              <TouchableOpacity>             
+              <TouchableOpacity onPress={handleOpenGuilds}>             
                 <View style={styles.select}>
                   {
                     //<View style={styles.image}/>
@@ -107,6 +126,12 @@ export function AppointmentCreate() {
   
             </View>
           </ScrollView>
+
+          
+          <ModalViews visible={openGuildsModal}>
+            <Guilds handleGuildSelect={handleGuildSelect}/>
+          </ModalViews>
+          
         </Background>
     </KeyboardAvoidingView>
     )

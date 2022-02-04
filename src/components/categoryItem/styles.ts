@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
         color: theme.colors.heading,
         fontFamily: theme.fonts.title700,
         fontSize: 15,
+        marginTop: 15
     },
 
     checked: {
