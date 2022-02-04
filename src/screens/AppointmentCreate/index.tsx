@@ -61,11 +61,14 @@ export function AppointmentCreate() {
               <TouchableOpacity onPress={handleOpenGuilds}>             
                 <View style={styles.select}>
                   {
-                    //<View style={styles.image}/>
-                    <GuildIcon />
+                    guild.icon ? <GuildIcon /> : <View style={styles.image}/>                
                   }
                   <View style={styles.selectBody}>
-                    <Text style={styles.label}> Selecione um servidor </Text>
+                    <Text style={styles.label}>
+                      {
+                        guild.name ? guild.name : "Selecione um servidor" 
+                      }
+                    </Text>
                   </View>
 
                   <Feather 

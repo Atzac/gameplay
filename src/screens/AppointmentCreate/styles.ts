@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     },
     selectBody: {
         flex: 1,
-        alignItems: "center",
+        marginLeft: 20
     },
     image: {
         width: 64,

@@ -16,6 +16,12 @@ export function Guilds({ handleGuildSelect } : Props) {
             name: "Legendários",
             icon: null,
             owner: true
+        },
+        {
+            id: "2",
+            name: "Marginais",
+            icon: null,
+            owner: true
         }
     ]
     return (
