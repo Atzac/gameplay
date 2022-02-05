@@ -13,6 +13,7 @@ import { ListHeader } from '../../components/listHeader';
 import { Profile } from '../../components/profile';
 
 import { styles } from './styles';
+import { Background } from '../../components/background';
 
 type AppointmentDetailsScreenProp = NativeStackNavigationProp<RootStackParamsList, "AppointmentDetails">
 type AllScreens = NativeStackNavigationProp<RootStackParamsList, "AppointmentCreate"> & AppointmentDetailsScreenProp
@@ -33,42 +34,6 @@ export function Home() {
         category: "1",
         date: "24/01 às 20:40",
         description: "È hoje que vamos chegar ao charlenger sem perder uma partida da md10"
-      },
-      {
-        id: "2",
-        guild: {
-          id: 1,
-          name: "Lendários",
-          icon: null,
-          owner: true
-        },
-        category: "1",
-        date: "24/01 às 20:40",
-        description: "È hoje que vamos chegar ao charlenger sem perder uma partida da md10"
-      },
-      {
-        id: "3",
-        guild: {
-          id: 1,
-          name: "Lendários",
-          icon: null,
-          owner: true
-        },
-        category: "1",
-        date: "24/01 às 20:40",
-        description: "È hoje que vamos chegar ao charlenger sem perder uma partida da md10"
-      },
-      {
-        id: "4",
-        guild: {
-          id: 1,
-          name: "Lendários",
-          icon: null,
-          owner: true
-        },
-        category: "1",
-        date: "24/01 às 20:40",
-        description: "È hoje que vamos chegar ao charlenger sem perder uma partida da md10"
       }
     ]
 
@@ -80,14 +45,12 @@ export function Home() {
       navigation.navigate("AppointmentCreate")
     }
 
-
     function handleCategorySelect(categoryId: string) {
       categoryId === category ? setCategory('') : setCategory(categoryId);
-      console.log(categoryId)
     }
 
     return (
-        <View >
+        <Background>
           <View style={styles.header}>
             <Profile />     
             <ButtonAdd 
@@ -99,27 +62,27 @@ export function Home() {
             categorySelected={category}
             setCategory={handleCategorySelect}
           />
+     
+          <ListHeader 
+            title={"Partidas agendadas"}
+            subTitle={"Total: 6"}
+          />
 
-          <View style={styles.content}>
-            <ListHeader 
-              title={"Partidas agendadas"}
-              subTitle={"Total: 6"}
-            />
-            
-            <FlatList 
-              data={appointments}
-              keyExtractor={item => item.id}
-              renderItem={({ item }) => (
-                <Appointment 
-                  data={item}
-                  onPress={handleAppointmentDetails}
-                />
-              )}
-              ItemSeparatorComponent={() => <ListDivider />}
-              style={styles.matches}
-              showsVerticalScrollIndicator={false}
-            />
-          </View>
-        </View>
+          <FlatList 
+            data={appointments}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <Appointment 
+                data={item}
+                onPress={handleAppointmentDetails}
+              />
+            )}
+            ItemSeparatorComponent={() => <ListDivider />}
+            contentContainerStyle={{ paddingBottom: 50 }}
+            style={styles.matches}
+            showsVerticalScrollIndicator={false}
+          />
+         
+        </Background>
     )
 }

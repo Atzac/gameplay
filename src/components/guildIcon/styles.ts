@@ -3,11 +3,16 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     image: {
-        width: 64,
-        height: 64,
+        width: 67,
+        height: 67,
         borderRadius: 8,
-        marginRight: 20,
     },
-
+    guildIconContainer: {
+        height: 69,
+        width: 69,
+        borderRadius: 8,
+        alignItems: "center",
+        justifyContent: "center",
+    }
     
 })

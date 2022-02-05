@@ -32,11 +32,13 @@ export function Guilds({ handleGuildSelect } : Props) {
               renderItem={({ item }) => (
                   <Guild 
                     data={item}
-                    onPress={() =>handleGuildSelect(item)}
+                    onPress={() => handleGuildSelect(item)}
                   />
               )}
               showsVerticalScrollIndicator={false}
               ItemSeparatorComponent={() => <ListDivider />} 
+              ListHeaderComponent={() => <ListDivider />}
+              contentContainerStyle={{ paddingBottom: 50, paddingTop: 60}}
               style={styles.guilds}
             />
         </View>

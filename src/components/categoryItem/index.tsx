@@ -22,7 +22,7 @@ export function CategoryItem({
     hasCheckBox = false,
     ...rest
 } : Props) {
-    const {secondary70, secondary50, secondary85, secondary40} = theme.colors
+    const {secondary70, secondary50, secondary85, secondary40, secondary30} = theme.colors
     
 
     return (
@@ -32,7 +32,7 @@ export function CategoryItem({
       >
         <LinearGradient
           style={styles.container}
-          colors={[secondary50, secondary70]}
+          colors={[secondary30, secondary70]}
         >
           <LinearGradient 
             style={[styles.content, { opacity: checked ? 1 : 0.5}]}

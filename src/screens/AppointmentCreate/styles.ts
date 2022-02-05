@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
         width: "100%",
         height: 68,
         flexDirection: "row",
-        borderColor: theme.colors.secondary50,
+        borderColor: theme.colors.secondary30,
         borderWidth: 1,
         borderRadius: 8,
         alignItems: "center",
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
         height: 68,
         backgroundColor: theme.colors.secondary40,
         borderWidth: 1,
-        borderColor: theme.colors.secondary50,
+        borderColor: theme.colors.secondary30,
         borderRadius: 8
     },
     field: {

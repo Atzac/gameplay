@@ -8,20 +8,21 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "flex-end",
         paddingHorizontal: 20,
-        marginBottom: 30,
+        marginBottom: 25,
     },
     banner: {
         width: "100%",
         height: 230,
-        marginBottom: 30,
     },
     title: {
         fontSize: 28,
         fontFamily: theme.fonts.title700,
-        color: theme.colors.heading
+        color: theme.colors.heading,
+        marginBottom: 5
     },
     subTitle: {
         fontSize: 13,
+        lineHeight: 20,
         fontFamily: theme.fonts.text400,
         color: theme.colors.heading
     },

@@ -19,7 +19,7 @@ import { DescInput } from "../../components/descInput";
 import { Button } from "../../components/button";
 import { ModalViews } from "../../components/modalViews";
 import { Guilds } from "../guilds";
-import { GuildProps } from "../../components/appointment";
+import { GuildProps } from "../../components/guild";
 
 export function AppointmentCreate() {
   const [category, setCategory] = useState("")
@@ -30,11 +30,18 @@ export function AppointmentCreate() {
     setOpenGuildsModal(true)
   }
 
+  function handleCloseGuilds() {
+    setOpenGuildsModal(false)
+  }
+
   function handleGuildSelect(guildSelect: GuildProps) {
     setGuild(guildSelect)
     setOpenGuildsModal(false)
   }
-    
+  
+  function handleCategorySelect(categoryId: string) {
+    setCategory(categoryId);
+  }
     
     return (
       <KeyboardAvoidingView 
@@ -53,7 +60,7 @@ export function AppointmentCreate() {
 
             <CategoryCards 
               hasCheckBox
-              setCategory={setCategory}
+              setCategory={handleCategorySelect}
               categorySelected={category}
             />
 
@@ -131,8 +138,8 @@ export function AppointmentCreate() {
           </ScrollView>
 
           
-          <ModalViews visible={openGuildsModal}>
-            <Guilds handleGuildSelect={handleGuildSelect}/>
+          <ModalViews visible={openGuildsModal} closeModal={handleCloseGuilds}>
+            <Guilds handleGuildSelect={handleGuildSelect} />
           </ModalViews>
           
         </Background>
