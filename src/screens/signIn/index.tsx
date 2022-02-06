@@ -9,10 +9,13 @@ import Illustration from '../../assets/illustration.png'
 import { Button } from '../../components/buttonIcon';
 import { Background } from '../../components/background'
 
+import { useAuth } from "../../context/auth"
+
 type homeScreenProp = NativeStackNavigationProp<RootStackParamsList, "Home">
 
 export function SignIn() {
     const navigation = useNavigation<homeScreenProp>();
+    const { user } = useAuth();
     
     const handleSignIn = () => {
       navigation.navigate("Home")
