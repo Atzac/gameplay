@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19000,
-  "expoServerNgrokUrl": "https://fi-tmk.anonymous.gameplay.exp.direct",
-  "packagerNgrokUrl": "https://packager.fi-tmk.anonymous.gameplay.exp.direct",
-  "ngrokPid": 27867,
+  "expoServerNgrokUrl": "https://fi-tmk.atzac.gameplay.exp.direct",
+  "packagerNgrokUrl": "https://packager.fi-tmk.atzac.gameplay.exp.direct",
+  "ngrokPid": 34455,
   "packagerPid": null,
   "webpackServerPort": null
 }

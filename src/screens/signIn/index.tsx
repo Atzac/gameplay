@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, View, Text } from 'react-native';
+import { Image, View, Text, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../../routes/auth.routes"
@@ -15,10 +15,15 @@ type homeScreenProp = NativeStackNavigationProp<RootStackParamsList, "Home">
 
 export function SignIn() {
     const navigation = useNavigation<homeScreenProp>();
-    const { user } = useAuth();
+    const { user, signIn } = useAuth();
     
-    const handleSignIn = () => {
-      navigation.navigate("Home")
+    const handleSignIn = async () => {
+      //navigation.navigate("Home")
+      try {
+        await signIn();
+      } catch (error) {
+        //Alert.alert(error)
+      }
     }
 
     return (
