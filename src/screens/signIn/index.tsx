@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, View, Text, Alert } from 'react-native';
+import { Image, View, Text, Alert, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../../routes/auth.routes"
@@ -8,6 +8,7 @@ import { styles } from './styles';
 import Illustration from '../../assets/illustration.png'
 import { Button } from '../../components/buttonIcon';
 import { Background } from '../../components/background'
+import { theme } from '../../global/styles/theme';
 
 import { useAuth } from "../../context/auth"
 
@@ -15,7 +16,7 @@ type homeScreenProp = NativeStackNavigationProp<RootStackParamsList, "Home">
 
 export function SignIn() {
     const navigation = useNavigation<homeScreenProp>();
-    const { user, signIn } = useAuth();
+    const { loading, signIn } = useAuth();
     
     const handleSignIn = async () => {
       //navigation.navigate("Home")
@@ -46,10 +47,14 @@ export function SignIn() {
                 favoritos com seus amigos
               </Text>
 
-              <Button
-                title={"Entrar com Discord"} 
-                onPress={handleSignIn}
-              />
+              { 
+                loading ? <ActivityIndicator color={theme.colors.primary}/> 
+                :
+                <Button
+                  title={"Entrar com Discord"} 
+                  onPress={handleSignIn}
+                />
+              }
           </View>
         </View>
       </Background>

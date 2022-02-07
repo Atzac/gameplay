@@ -10,7 +10,7 @@ type Props = {
 }
 
 export function Avatar({ urlImage } : Props) {
-    const {secondary70, secondary50} = theme.colors
+    const {secondary30, secondary50} = theme.colors
 
     return (
         <TouchableOpacity
@@ -18,7 +18,7 @@ export function Avatar({ urlImage } : Props) {
         >
           <LinearGradient
             style={styles.container}
-            colors={[secondary70, secondary50]}
+            colors={[secondary30, secondary50]}
           >
             <Image 
               source={{uri: urlImage}}
